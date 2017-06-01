@@ -1,0 +1,24 @@
+<div class="">
+  <div class="row text-center">
+    <h4>Search for actors and their movies</h4>
+  </div>
+  <div class="form-group col-md-6 col-md-offset-3 no-float">
+    <input class="center-block form-control" placeholder="Search for actor... " ng-model="searchQuery" ng-change="getActors() " /> <br>
+    <button class="center-block btn btn-primary" ng-click="getActors() ">
+    Search
+  </button>
+    <hr>
+  </div>
+</div>
+<div>
+    <div ng-repeat="actor in actors | orderBy:'name'" class="actor-box col-lg-3" ng-click="selectMovie(actor.id,actor.name) ">
+        <div class="actor-info text-center ">
+            <div style="font-weight:bold;">{{actor.name}} </div>
+            <div> Popularity: {{actor.popularity}} </div>
+        </div>
+        <div class="image">
+            <img ng-if="actor.profile_path" ng-src="{{SITE_PATH}}/{{actor.profile_path}} " />
+            <img ng-if="!actor.profile_path" ng-src="https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg"></img>
+        </div>
+    </div>
+</div>

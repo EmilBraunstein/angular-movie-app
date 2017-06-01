@@ -1,0 +1,12 @@
+<div >
+  <h4><b>{{actorName}} is known for...</b></h4>
+  <div ng-repeat="movie in movies | orderBy:'original_title'" class="box col-sm-3 ">
+    <div class="text-center movie-title">
+      {{movie.original_title}}
+    </div>
+    <div class="image">
+      <img ng-if="movie.poster_path" ng-src="{{SITE_PATH}}/{{movie.poster_path}} ">
+      <img ng-if="!movie.poster_path" ng-src="https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg"></img>
+    </div>
+  </div>
+</div>
